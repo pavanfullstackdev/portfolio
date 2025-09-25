@@ -9,10 +9,11 @@ import Blogs from './pages/Blogs'
 import Education from './pages/Education'
 import Contact from './pages/Contact'
 import Skills from './pages/Skills'
+import 'animate.css';
 
 const App = () => {
   return (
-<div className="bg-[linear-gradient(172deg,_hsl(346,70%,78%),_hsl(201,80%,74%))]">
+    <div className="min-h-screen bg-[linear-gradient(172deg,_hsl(346,70%,78%),_hsl(201,80%,74%))]">
       <Navbar />
       <Home />
       <About />

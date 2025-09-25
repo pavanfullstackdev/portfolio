@@ -30,20 +30,19 @@ const Navbar = () => {
         <div className="text-xl font-bold">My Portfolio</div>
 
         {/* Desktop Menu */}
-        <Menubar className="hidden md:flex space-x-2 bg-transparent border-none shadow-none p-0">
-          <MenubarMenu>
-            {navItems.map((item) => (
-              <MenubarTrigger key={item.href} asChild>
-                <a
-                  href={item.href}
-                  className="px-3 py-1 text-sm hover:text-blue-600"
-                >
-                  {item.label}
-                </a>
-              </MenubarTrigger>
-            ))}
-          </MenubarMenu>
-        </Menubar>
+        {/* Desktop Menu */}
+<div className="hidden md:flex space-x-4">
+  {navItems.map((item) => (
+    <a
+      key={item.href}
+      href={item.href}
+      className="px-3 py-1 text-sm font-medium hover:text-blue-600 transition-colors"
+    >
+      {item.label}
+    </a>
+  ))}
+</div>
+
 
         {/* Mobile Hamburger */}
         <div className="md:hidden">
