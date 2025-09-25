@@ -13,7 +13,7 @@ import 'animate.css';
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-[linear-gradient(172deg,_hsl(346,70%,78%),_hsl(201,80%,74%))]">
+    <div className="min-h-screen bg-[linear-gradient(172deg,_hsl(210,70%,97%),_hsl(201,80%,92%))] scroll-smooth">
       <Navbar />
       <Home />
       <About />
