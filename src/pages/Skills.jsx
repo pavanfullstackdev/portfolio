@@ -21,11 +21,12 @@ import {
   SiBootstrap,
   SiShadcnui,
   SiMui,
+  SiVite,
 } from "react-icons/si";
 import { FaAws } from "react-icons/fa";
 import { SiJira } from "react-icons/si";
 import { AiOutlineAntDesign } from "react-icons/ai";
-
+import zustandImg from "../assets/zustandImg.svg";
 const skillsData = [
   // FRONTEND
   {
@@ -67,7 +68,7 @@ const skillsData = [
   },
   {
     name: "Zustand",
-    icon: <SiRedux size={28} className="text-purple-500" />,
+    icon:<img src={zustandImg} alt="Zustand" className="w-7 h-7" />,
     category: "Frontend",
   },
 
@@ -102,6 +103,11 @@ const skillsData = [
   },
 
   // ADVANCED TOOLING / DESIGN
+  {
+    name: "Vite",
+    icon: <SiVite size={28} className="text-[#BD34FE]" />,
+    category: "Tooling",
+  },
   {
     name: "Git",
     icon: <SiGit size={28} className="text-orange-600" />,
@@ -177,7 +183,7 @@ const Skills = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            transition={{ duration: 0.3, delay: index * 0.05 }}
           >
             <Card className="bg-white/20 backdrop-blur-md border border-white/30 shadow-lg flex flex-col items-center justify-center p-4 cursor-pointer hover:scale-105 hover:shadow-xl transition-transform duration-300">
               <CardContent className="flex flex-col items-center justify-center gap-2">

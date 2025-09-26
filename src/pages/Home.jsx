@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Send, X, Eye } from "lucide-react";
 import { Typewriter } from "react-simple-typewriter";
