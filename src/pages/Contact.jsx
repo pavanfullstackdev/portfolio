@@ -7,6 +7,11 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import contactusImg from "../assets/contactusImg.jpg";
+
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -27,11 +32,8 @@ const Contact = () => {
 
     try {
       await emailjs.send(
-        // "YOUR_SERVICE_ID",
-        // "YOUR_TEMPLATE_ID",
-        "service_jxt2rwx",
-        "template_m2uzk86",
-
+        SERVICE_ID,
+        TEMPLATE_ID,
         {
           title: "SomeOne Visited Portfolio.",
           name: formData.name,
@@ -39,8 +41,7 @@ const Contact = () => {
           message: formData.message,
           email: formData.email,
         },
-        // "YOUR_PUBLIC_KEY"
-        "2pFyKRvgxlHteaE6Z"
+        PUBLIC_KEY
       );
       setSuccess("Message sent successfully!");
       setFormData({ name: "", email: "", message: "" });
