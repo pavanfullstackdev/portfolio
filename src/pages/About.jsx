@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Eye, Send } from "lucide-react";
 import { CardBody, CardContainer } from "@/components/ui/shadcn-io/3d-card";
@@ -10,23 +10,51 @@ const experienceData = [
     company: "Infosys",
     role: "Associate Consultant",
     duration: "July 2024 - Present",
-    description: "",
     logo: <SiInfosys size={80} className="text-sky-800" />,
   },
   {
     company: "SAAMA",
     role: "Associate Software Engineer",
     duration: "October 2021 - July 2024",
-    description: "",
     logo: saamaImg,
   },
 ];
 
 const About = () => {
+  const scrollRef = useRef(null);
+
+  // Auto-scroll for mobile carousel
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    let scrollAmount = 0;
+    let interval;
+    const startScroll = () => {
+      if (window.innerWidth < 768) {
+        interval = setInterval(() => {
+          scrollAmount += 1;
+          if (scrollAmount >= container.scrollWidth - container.clientWidth) {
+            scrollAmount = 0;
+          }
+          container.scrollLeft = scrollAmount;
+        }, 20);
+      }
+    };
+
+    startScroll();
+    window.addEventListener("resize", startScroll);
+
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener("resize", startScroll);
+    };
+  }, []);
+
   return (
     <section
       id="about"
-      className="min-h-screen flex flex-col items-center justify-center px-6 md:px-20 
+      className="min-h-screen flex flex-col items-center justify-center px-6 md:px-20 py-12
                  bg-[linear-gradient(172deg,_hsl(210,70%,97%),_hsl(201,80%,92%))] backdrop-blur-md"
     >
       {/* Header */}
@@ -42,7 +70,7 @@ const About = () => {
 
       {/* About Text */}
       <motion.p
-        className="text-gray-700 text-lg md:text-xl max-w-3xl text-center"
+        className="text-gray-700 text-lg md:text-xl max-w-3xl text-center mb-8"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.3 }}
@@ -57,31 +85,21 @@ const About = () => {
 
       {/* Horizontal Experience Cards */}
       <motion.div
-        className="flex gap-4 overflow-x-auto  w-full justify-center"
+        ref={scrollRef}
+        className="flex gap-4 overflow-x-auto w-full md:flex-wrap md:justify-center"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 0.8, delay: 0.4 }}
       >
         {experienceData.map((exp) => (
-          <CardContainer key={exp.company} containerClassName="flex-shrink-0">
+          <CardContainer key={exp.company} containerClassName="flex-shrink-0 md:flex-1 md:w-full">
             <CardBody
-              className="
-                relative
-                rounded-xl
-                p-4
-                transition-transform duration-500
-                hover:scale-105
-                w-[450px] h-[150px] flex items-center
-                border border-gray-200
-                shadow-lg hover:shadow-xl
-                overflow-hidden
-                bg-gradient-to-t from-indigo-100/30 via-pink-100/20 to-yellow-100/10
-              "
+              className="relative rounded-xl p-4 transition-transform duration-500 hover:scale-105
+                         w-[450px] h-[150px] flex items-center border border-gray-200 shadow-lg hover:shadow-xl
+                         overflow-hidden bg-gradient-to-t from-indigo-100/30 via-pink-100/20 to-yellow-100/10"
             >
-              {/* Content */}
               <div className="flex items-center w-full h-full">
-                {/* Company Logo */}
                 <div className="w-32 h-32 flex-shrink-0 flex items-center justify-center overflow-hidden rounded-lg text-4xl mr-4 bg-white/20">
                   {React.isValidElement(exp.logo) ? (
                     exp.logo
@@ -94,7 +112,6 @@ const About = () => {
                   )}
                 </div>
 
-                {/* Company Info */}
                 <div className="flex flex-col justify-center ml-4">
                   <p className="text-gray-800 text-sm">{exp.role}</p>
                   <p className="text-gray-600 text-xs mt-1">{exp.duration}</p>
@@ -107,7 +124,7 @@ const About = () => {
 
       {/* Action Buttons */}
       <motion.div
-        className="flex gap-4 flex-wrap justify-center "
+        className="flex gap-4 flex-wrap justify-center mt-6"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.3 }}

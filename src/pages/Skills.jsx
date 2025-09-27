@@ -68,7 +68,7 @@ const skillsData = [
   },
   {
     name: "Zustand",
-    icon:<img src={zustandImg} alt="Zustand" className="w-7 h-7" />,
+    icon: <img src={zustandImg} alt="Zustand" className="w-7 h-7" />,
     category: "Frontend",
   },
 
@@ -172,8 +172,14 @@ const Skills = () => {
       id="skills"
       className="min-h-screen px-6 md:px-20 py-16 bg-[linear-gradient(172deg,_hsl(210,70%,97%),_hsl(201,80%,92%))] backdrop-blur-lg"
     >
-      <h1 className="text-4xl font-bold text-center mb-12">
-        My Skills & Expertise
+      <h1
+        className="text-4xl md:text-5xl font-extrabold text-center mb-12
+             bg-gradient-to-r from-purple-500 to-blue-500
+             bg-clip-text text-transparent
+             tracking-wide
+             drop-shadow-lg"
+      >
+        Skills & Expertise
       </h1>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
@@ -183,7 +189,7 @@ const Skills = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.3, delay: index * 0.05 }}
+            transition={{ duration: 0.3, delay: index * 0.009 }}
           >
             <Card className="bg-white/20 backdrop-blur-md border border-white/30 shadow-lg flex flex-col items-center justify-center p-4 cursor-pointer hover:scale-105 hover:shadow-xl transition-transform duration-300">
               <CardContent className="flex flex-col items-center justify-center gap-2">

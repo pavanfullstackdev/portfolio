@@ -21,9 +21,8 @@ const Contact = () => {
   const [sending, setSending] = useState(false);
   const [success, setSuccess] = useState(null);
 
-  const handleChange = (e) => {
+  const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,7 +34,7 @@ const Contact = () => {
         SERVICE_ID,
         TEMPLATE_ID,
         {
-          title: "SomeOne Visited Portfolio.",
+          title: "Someone Visited Portfolio.",
           name: formData.name,
           time: new Date().toLocaleString(),
           message: formData.message,
@@ -56,98 +55,83 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative min-h-screen flex items-center justify-center bg-[linear-gradient(120deg,_#0d1b2a,_#12395f)] overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center px-6 md:px-20 py-16 bg-[linear-gradient(120deg,_hsl(210,70%,97%),_hsl(201,80%,92%))] overflow-hidden"
     >
-      {/* Starry Background */}
+      {/* Optional Background Stars */}
       <div className="absolute inset-0">
         <canvas id="starfield" className="w-full h-full"></canvas>
       </div>
 
-      {/* Content Container */}
-      <div className="relative z-10 flex flex-col lg:flex-row items-center justify-center w-full max-w-6xl px-6 py-16 gap-12">
-        {/* Left - Form */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
-          className="lg:w-1/2 w-full"
-        >
-          <div className="border rounded-2xl p-8 shadow-lg flex flex-col gap-4">
-            <h2 className="text-3xl font-bold text-white text-center mb-6">
-              Contact Me
-            </h2>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-              <Input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="bg-white/10 placeholder-gray-300 text-white"
-              />
-              <Input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="bg-white/10 placeholder-gray-300 text-white"
-              />
-              <Textarea
-                name="message"
-                placeholder="Your Message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                className="bg-white/10 placeholder-gray-300 text-white"
-              />
-              <Button
-                type="submit"
-                className="bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:scale-105 transition-transform duration-300"
-                disabled={sending}
-              >
-                {sending ? "Sending..." : "Connect"}
-              </Button>
-              {success && (
-                <p
-                  className={`text-center mt-2 ${
-                    success.includes("success")
-                      ? "text-green-400"
-                      : "text-red-400"
-                  }`}
-                >
-                  {success}
-                </p>
-              )}
-            </form>
-          </div>
-        </motion.div>
+      {/* Form Card */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        className="w-full max-w-3xl bg-[linear-gradient(120deg,_hsl(210,70%,97%),_hsl(201,80%,92%))]"
+      >
+        <div className="backdrop-blur-md bg-white/20 dark:bg-black/20 border border-white/30 rounded-2xl p-8 shadow-lg flex flex-col gap-6 items-center">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white text-center">
+            Let's Connect!
+          </h2>
+          <h3 className="text-xl md:text-2xl font-semibold text-gray-800 dark:text-gray-200 text-center">
+            Open for opportunities, collaborations, and freelance projects
+          </h3>
+          <p className="text-gray-700 dark:text-gray-300 text-center max-w-md mx-auto">
+            Whether you have a project idea, need a frontend developer, or want
+            to collaborate on something exciting, I’m eager to contribute.
+          </p>
 
-        {/* Right - Illustration / Info */}
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
-          className="lg:w-1/2 w-full flex items-center justify-center"
-        >
-          <div className=" border rounded-2xl p-8 shadow-lg flex flex-col items-center text-center">
-            <h2 className="text-2xl font-bold text-white mb-4">
-              Let’s Collaborate
-            </h2>
-            <p className="text-gray-300 mb-6">
-              I’m always open to discussing new projects, creative ideas, or
-              opportunities to bring your vision to life.
-            </p>
-            <img
-              src={contactusImg}
-              alt="contact illustration"
-              className="rounded-xl shadow-lg w-90 h-45"
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-4 w-full items-center"
+          >
+            <Input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="w-3/4 max-w-md bg-white/10 dark:bg-black/20 placeholder-gray-500 text-gray-900 dark:text-white"
             />
-          </div>
-        </motion.div>
-      </div>
+            <Input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="w-3/4 max-w-md bg-white/10 dark:bg-black/20 placeholder-gray-500 text-gray-900 dark:text-white"
+            />
+            <Textarea
+              name="message"
+              placeholder="Your Message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+              className="w-3/4 max-w-md bg-white/10 dark:bg-black/20 placeholder-gray-500 text-gray-900 dark:text-white"
+            />
+            <Button
+              type="submit"
+              className="w-3/4 max-w-md bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:scale-105 transition-transform duration-300"
+              disabled={sending}
+            >
+              {sending ? "Sending..." : "Connect"}
+            </Button>
+            {success && (
+              <p
+                className={`text-center mt-2 ${
+                  success.includes("success")
+                    ? "text-green-600"
+                    : "text-red-600"
+                }`}
+              >
+                {success}
+              </p>
+            )}
+          </form>
+        </div>
+      </motion.div>
     </section>
   );
 };
