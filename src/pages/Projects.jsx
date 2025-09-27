@@ -126,11 +126,11 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="min-h-screen px-6 md:px-20 py-16 bg-[linear-gradient(120deg,_hsl(210,70%,97%),_hsl(201,80%,92%))]"
+      className="min-h-screen px-6 md:px-20 bg-[linear-gradient(120deg,_hsl(210,70%,97%),_hsl(201,80%,92%))] py-12"
     >
-      <h1 className="text-4xl font-bold text-center mb-12">My Projects</h1>
+      <h1 className="text-4xl font-bold text-center mb-8">My Projects</h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mx-auto max-w-7xl">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mx-auto max-w-7xl">
         {projectsData.map((project) => (
           <CardContainer
             key={project.name}
@@ -139,20 +139,20 @@ const Projects = () => {
           >
             <CardBody
               className="
-    bg-gradient-to-tr from-white/20 via-white/10 to-white/5
-    backdrop-blur-xl
-    relative
-    rounded-xl
-    border border-white/20
-    p-4
-    transition-all duration-500
-    hover:shadow-[0_0_40px_rgba(56,189,248,0.3)]
-    hover:scale-105
-    w-[300px] flex flex-col
-  "
+            bg-gradient-to-tr from-white/20 via-white/10 to-white/5
+            backdrop-blur-xl
+            relative
+            rounded-xl
+            border border-white/20    
+            p-3
+            transition-all duration-500
+            hover:shadow-[0_0_40px_rgba(56,189,248,0.3)]
+            hover:scale-105
+            w-[280px] flex flex-col
+          "
             >
               {/* Project Image */}
-              <div className="relative w-full h-48 flex items-center justify-center overflow-hidden rounded-lg bg-gray-100/20">
+              <div className="relative w-full h-40 flex items-center justify-center overflow-hidden rounded-lg bg-gray-100/20">
                 <img
                   src={project.img}
                   alt={project.name}
@@ -161,23 +161,23 @@ const Projects = () => {
               </div>
 
               {/* Project Title */}
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white mt-4 text-center">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white mt-3 text-center">
                 {project.name}
               </h3>
 
               {/* Project Description */}
               {project.desc && (
-                <p className="text-sm text-gray-700 dark:text-gray-300 mt-2 text-center">
+                <p className="text-sm text-gray-700 dark:text-gray-300 mt-1 text-center">
                   {project.desc}
                 </p>
               )}
 
               {/* Tech Stack Icons */}
-              <div className="flex flex-wrap justify-center gap-3 mt-3">
+              <div className="flex flex-wrap justify-center gap-2 mt-2">
                 {project.stacks.map((stack) => (
                   <div
                     key={stack}
-                    className="hover:scale-110 transition"
+                    className="hover:scale-105 transition"
                     title={stack}
                   >
                     {techIcons[stack] || (
@@ -190,33 +190,31 @@ const Projects = () => {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex justify-center gap-4 mt-5">
-                {/* Live Demo Button */}
+              <div className="flex justify-center gap-3 mt-3">
                 <motion.a
                   href={project.demoLink}
                   target="_blank"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-gradient-to-r from-purple-500 to-blue-500 text-white text-sm font-medium shadow cursor-pointer"
+                  className="flex items-center gap-1 px-2 py-1.5 rounded bg-gradient-to-r from-purple-500 to-blue-500 text-white text-sm font-medium shadow cursor-pointer"
                   title="Live Demo"
                 >
                   <Eye size={16} />
-                  <span>Live Demo</span>
+                  <span>Demo</span>
                 </motion.a>
 
-                {/* GitHub Button */}
                 <motion.a
                   href={project.githubLink}
                   target="_blank"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-black/90 text-white text-sm font-medium shadow cursor-pointer border border-gray-700 hover:bg-gray-800 hover:text-white"
+                  className="flex items-center gap-1 px-2 py-1.5 rounded bg-black/90 text-white text-sm font-medium shadow cursor-pointer border border-gray-700 hover:bg-gray-800"
                   title="Source Code"
                 >
                   <SiGithub size={16} />
-                  <span>Source Code</span>
+                  <span>Code</span>
                 </motion.a>
               </div>
             </CardBody>

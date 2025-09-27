@@ -1,14 +1,7 @@
-import React, { useState } from "react";
-import {
-  Menubar,
-  MenubarMenu,
-  MenubarContent,
-  MenubarItem,
-  MenubarTrigger,
-} from "@/components/ui/menubar";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react"; // Icon (install `lucide-react` if needed)
-
+import { Menu } from "lucide-react";
+import LOGO from "../assets/LOGO.png";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -26,9 +19,7 @@ const Navbar = () => {
   return (
     <div className="fixed top-0 left-0 w-full z-50 bg-gradient-to-br from-blue-50 to-purple-50 backdrop-blur-md shadow-md">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-        <div className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">
-          My Portfolio
-        </div>
+        <img src={LOGO} alt="PavanFullStackDev" className="h-10 w-auto" />
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-4">

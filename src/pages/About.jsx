@@ -4,6 +4,7 @@ import { Eye, Send } from "lucide-react";
 import { CardBody, CardContainer } from "@/components/ui/shadcn-io/3d-card";
 import { SiInfosys } from "react-icons/si";
 import saamaImg from "../assets/saamaImg.png";
+import GitHubContributions from "./GitHubContributions ";
 
 const experienceData = [
   {
@@ -93,7 +94,10 @@ const About = () => {
         transition={{ duration: 0.8, delay: 0.4 }}
       >
         {experienceData.map((exp) => (
-          <CardContainer key={exp.company} containerClassName="flex-shrink-0 md:flex-1 md:w-full">
+          <CardContainer
+            key={exp.company}
+            containerClassName="flex-shrink-0 md:flex-1 md:w-full"
+          >
             <CardBody
               className="relative rounded-xl p-4 transition-transform duration-500 hover:scale-105
                          w-[450px] h-[150px] flex items-center border border-gray-200 shadow-lg hover:shadow-xl
@@ -121,14 +125,14 @@ const About = () => {
           </CardContainer>
         ))}
       </motion.div>
-
+      <GitHubContributions />
       {/* Action Buttons */}
       <motion.div
         className="flex gap-4 flex-wrap justify-center mt-6"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
+        transition={{ duration: 0.8, delay: 0.06 }}
       >
         <motion.a
           href="#projects"
