@@ -55,7 +55,8 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative min-h-screen flex flex-col items-center justify-center px-6 md:px-20 py-16 bg-[linear-gradient(120deg,_hsl(210,70%,97%),_hsl(201,80%,92%))] overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center px-6 md:px-20 py-16 
+                 bg-[linear-gradient(120deg,_hsl(210,70%,97%),_hsl(201,80%,92%))] overflow-hidden"
     >
       {/* Optional Background Stars */}
       <div className="absolute inset-0">
@@ -67,7 +68,7 @@ const Contact = () => {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
-        className="w-full max-w-3xl bg-[linear-gradient(120deg,_hsl(210,70%,97%),_hsl(201,80%,92%))]"
+        className="w-full max-w-3xl"
       >
         <div className="backdrop-blur-md bg-white/20 dark:bg-black/20 border border-white/30 rounded-2xl p-8 shadow-lg flex flex-col gap-6 items-center">
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white text-center">
@@ -132,6 +133,15 @@ const Contact = () => {
           </form>
         </div>
       </motion.div>
+
+      {/* Footer */}
+      <footer className="w-full max-w-3xl mt-12 mx-auto rounded-xl shadow-lg backdrop-blur-md bg-white/20 dark:bg-black/20 border border-white/30 px-6 py-4 flex justify-between items-center text-gray-700 dark:text-gray-300 transition-all duration-300 hover:shadow-xl">
+        <span className="font-medium">Pavan Birari +91 8830134424</span>
+        <span className="text-center">
+          Created with <span className="text-red-500 animate-pulse">❤️</span> in
+          India
+        </span>
+      </footer>
     </section>
   );
 };
