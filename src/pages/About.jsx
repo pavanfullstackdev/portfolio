@@ -34,12 +34,12 @@ const About = () => {
     const startScroll = () => {
       if (window.innerWidth < 768) {
         interval = setInterval(() => {
-          scrollAmount += 1;
+          scrollAmount += 0.5; // Reduced scroll speed
           if (scrollAmount >= container.scrollWidth - container.clientWidth) {
             scrollAmount = 0;
           }
           container.scrollLeft = scrollAmount;
-        }, 20);
+        }, 50); // Increased interval for smoother scrolling
       }
     };
 
@@ -87,7 +87,7 @@ const About = () => {
       {/* Horizontal Experience Cards */}
       <motion.div
         ref={scrollRef}
-        className="flex gap-4 overflow-x-auto w-full md:flex-wrap md:justify-center"
+        className="flex gap-4 overflow-x-auto w-full md:flex-wrap md:justify-center hide-scrollbar"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.3 }}
