@@ -35,6 +35,8 @@ import ColorGenerator from "../assets/ColorGenerator.PNG";
 import AvatarGeneratorImg from "../assets/AvatarGeneratorImg.PNG";
 import imageeditormodernIMG from "../assets/imageeditormodernIMG.PNG";
 import imageFinderIMG from "../assets/imageFinderIMG.PNG";
+import AIAssistant from "../assets/AIAssistant.PNG";
+
 const techIcons = {
   HTML: <SiHtml5 size={20} className="text-orange-500" />,
   CSS: <SiCss3 size={20} className="text-blue-500" />,
@@ -76,6 +78,15 @@ const projectsData = [
     demoLink: "https://pavanbirari.netlify.app/",
     githubLink: "https://github.com/pavanfullstackdev/portfolio",
     stacks: ["React", "vite", "Tailwind", "Framer", "Shadcn"],
+  },
+  {
+    name: "AI Assistant",
+    img: AIAssistant,
+    desc: "Chat application built with React, TailwindCSS, and shadcn/ui that integrates with Google’s Gemini API",
+    demoLink: "https://genaiassistants.netlify.app/",
+    githubLink:
+      "https://github.com/pavanfullstackdev/Image-Finder-A-React-Image-Gallery",
+    stacks: ["React", "vite", "Tailwind", "Shadcn"],
   },
   {
     name: "Task Tracker App",
