@@ -36,7 +36,7 @@ import AvatarGeneratorImg from "../assets/AvatarGeneratorImg.PNG";
 import imageeditormodernIMG from "../assets/imageeditormodernIMG.PNG";
 import imageFinderIMG from "../assets/imageFinderIMG.PNG";
 import AIAssistant from "../assets/AIAssistant.PNG";
-
+import dietplanner from "../assets/dietplanner.PNG";
 const techIcons = {
   HTML: <SiHtml5 size={20} className="text-orange-500" />,
   CSS: <SiCss3 size={20} className="text-blue-500" />,
@@ -84,8 +84,15 @@ const projectsData = [
     img: AIAssistant,
     desc: "Chat application built with React, TailwindCSS, and shadcn/ui that integrates with Google’s Gemini API",
     demoLink: "https://genaiassistants.netlify.app/",
-    githubLink:
-      "https://github.com/pavanfullstackdev/Image-Finder-A-React-Image-Gallery",
+    githubLink: "https://github.com/pavanfullstackdev/AI-Assistant",
+    stacks: ["React", "vite", "Tailwind"],
+  },
+  {
+    name: "Gym Diet Planner",
+    img: dietplanner,
+    desc: "FitGenAI is an AI-powered fitness and nutrition web application that generates personalized workout and diet plans",
+    demoLink: "https://gymdietplanner.netlify.app/",
+    githubLink: "https://github.com/pavanfullstackdev/dietplanner",
     stacks: ["React", "vite", "Tailwind", "Shadcn"],
   },
   {
